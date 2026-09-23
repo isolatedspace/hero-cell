@@ -42,6 +42,10 @@ size = Vector3(2, 2.5, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kl5xk"]
 size = Vector3(2, 2.5, 0.1)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1beno"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1beno"]
+
 [node name="HeroCell" type="Node3D" unique_id=1694640515]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1292301904]
@@ -124,5 +128,14 @@ script = ExtResource("1_dbeke")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor/AnimatableBody3D" unique_id=151232406]
 shape = SubResource("BoxShape3D_kl5xk")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1289160241]
-transform = Transform3D(-0.99932367, -0.010590433, 0.03521433, 0.0034050408, 0.926866, 0.3753769, -0.036614373, 0.37524295, -0.9262031, -0.21386886, 2.0778453, 0.47769547)
+[node name="Hero" type="CharacterBody3D" parent="." unique_id=939318034]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hero" unique_id=1567671349]
+shape = SubResource("CapsuleShape3D_1beno")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hero/CollisionShape3D" unique_id=1448598922]
+mesh = SubResource("CapsuleMesh_1beno")
+
+[node name="Camera3D" type="Camera3D" parent="Hero" unique_id=1289160241]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 8, 5)
+current = true
