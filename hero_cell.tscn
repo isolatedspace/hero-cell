@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hdle6s5waqdq"]
 
 [ext_resource type="Script" uid="uid://cxwau8bi57mro" path="res://sliding_door.gd" id="1_dbeke"]
+[ext_resource type="Script" uid="uid://cnbkormyepmvw" path="res://hero.gd" id="2_1pdgf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1beno"]
 size = Vector3(6, 0.5, 6)
@@ -129,6 +130,7 @@ script = ExtResource("1_dbeke")
 shape = SubResource("BoxShape3D_kl5xk")
 
 [node name="Hero" type="CharacterBody3D" parent="." unique_id=939318034]
+script = ExtResource("2_1pdgf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hero" unique_id=1567671349]
 shape = SubResource("CapsuleShape3D_1beno")
