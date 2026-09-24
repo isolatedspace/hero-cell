@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bf5iiqtjlvsch"]
+
+[node name="Corridor" type="Node3D" unique_id=590340520]
+
+[node name="CorridorFloor" type="CSGBox3D" parent="." unique_id=1083526655]
+use_collision = true
+size = Vector3(15, 0.1, 4)

@@ -152,5 +152,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_x15vi")
 
+[node name="Corridor" type="Node3D" parent="." unique_id=1967281950]
+
+[node name="CorridorFloor" type="CSGBox3D" parent="Corridor" unique_id=2040763123]
+use_collision = true
+size = Vector3(15, 0.1, 4)
+
 [connection signal="body_entered" from="Area3D" to="SlidingDoor" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="SlidingDoor" method="_on_area_3d_body_exited"]
