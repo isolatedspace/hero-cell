@@ -8,8 +8,8 @@ func _physics_process(delta: float) -> void:
     if not is_on_floor():
         velocity.y -= gravity * delta
 
-    # 2. Get the directional input from your mapped WASD keys
-    var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+# Swapped move_right and move_left as well
+    var input_dir := Input.get_vector("move_right", "move_left", "move_down", "move_up")
     
     # 3. Translate that 2D input into 3D space (moving on the X and Z axes)
     var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()

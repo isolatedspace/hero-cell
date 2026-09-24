@@ -13,7 +13,7 @@ size = Vector3(6, 0.5, 6)
 size = Vector3(3, 3, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1beno"]
-size = Vector3(3, 0.5, 0.2)
+size = Vector3(2, 0.5, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dbeke"]
 size = Vector3(1, 2.5, 0.2)
@@ -46,6 +46,9 @@ size = Vector3(2, 2.5, 0.1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1beno"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1beno"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x15vi"]
+size = Vector3(2, 0.2, 2)
 
 [node name="HeroCell" type="Node3D" unique_id=1694640515]
 
@@ -129,7 +132,7 @@ script = ExtResource("1_dbeke")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlidingDoor/AnimatableBody3D" unique_id=151232406]
 shape = SubResource("BoxShape3D_kl5xk")
 
-[node name="Hero" type="CharacterBody3D" parent="." unique_id=939318034]
+[node name="Hero" type="CharacterBody3D" parent="." unique_id=939318034 groups=["Player"]]
 script = ExtResource("2_1pdgf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hero" unique_id=1567671349]
@@ -139,5 +142,15 @@ shape = SubResource("CapsuleShape3D_1beno")
 mesh = SubResource("CapsuleMesh_1beno")
 
 [node name="Camera3D" type="Camera3D" parent="Hero" unique_id=1289160241]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 8, 5)
+transform = Transform3D(-1, 7.5710346e-08, -4.3711385e-08, 0, 0.49999997, 0.86602545, 8.742278e-08, 0.86602545, -0.49999997, 0, 8, -5)
 current = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=428034874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1421632526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_x15vi")
+
+[connection signal="body_entered" from="Area3D" to="SlidingDoor" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="SlidingDoor" method="_on_area_3d_body_exited"]

@@ -3,25 +3,36 @@ extends MeshInstance3D
 var is_open = false
 var closed_position: Vector3
 var open_position: Vector3
+var tween: Tween # Store the tween so we can interrupt it
 
 func _ready():
     closed_position = position
-    # Calculates the open position by sliding 2.5 meters on the X axis.
-    # (Change to Vector3(0, 2.5, 0) if you want a vertical blast door instead!)
     open_position = closed_position + Vector3(2.5, 0, 0)
 
-func _input(event):
-    # Temporary test trigger: Pressing the Spacebar
-    if event.is_action_pressed("ui_accept"):
-        toggle_door()
+# 1. Connect your Area3D's "body_entered" signal to this function
+func _on_area_3d_body_entered(body):
+    if body.is_in_group("Player"):
+        open_door()
 
-func toggle_door():
-    # Create a Tween to animate the movement smoothly over 1 second
-    var tween = get_tree().create_tween()
-    
-    if is_open:
-        tween.tween_property(self, "position", closed_position, 1.0)
-    else:
-        tween.tween_property(self, "position", open_position, 1.0)
+# 2. Connect your Area3D's "body_exited" signal to this function
+func _on_area_3d_body_exited(body):
+    if body.is_in_group("Player"):
+        close_door()
+
+func open_door():
+    if is_open: return
+    is_open = true
+    animate_door(open_position)
+
+func close_door():
+    if not is_open: return
+    is_open = false
+    animate_door(closed_position)
+
+func animate_door(target_position: Vector3):
+    # Kill the previous tween if the player rapidly enters/exits the zone
+    if tween:
+        tween.kill() 
         
-    is_open = !is_open
+    tween = get_tree().create_tween()
+    tween.tween_property(self, "position", target_position, 1.0)
