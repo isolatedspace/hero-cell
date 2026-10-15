@@ -3,8 +3,9 @@
 [node name="Corridor" type="Node3D" unique_id=590340520]
 
 [node name="CorridorFloor" type="CSGBox3D" parent="." unique_id=1083526655]
+transform = Transform3D(0.99999994, -0.00026049092, 0, 0.00026049092, 0.99999994, 0, 0, 0, 1, 0, -1.4594594, -0.25)
 use_collision = true
-size = Vector3(15, 0.1, 4)
+size = Vector3(15, 0.1, 3)
 
 [node name="CorridorWall_1" type="CSGBox3D" parent="." unique_id=156930574]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7638078)
@@ -14,4 +15,4 @@ size = Vector3(15, 3, 0.5)
 [node name="CorridorWall_2" type="CSGBox3D" parent="." unique_id=1264826708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3429095)
 use_collision = true
-size = Vector3(15, 3, 1.3173828)
+size = Vector3(15, 3, 0.5)

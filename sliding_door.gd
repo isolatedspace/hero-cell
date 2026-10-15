@@ -1,38 +1,33 @@
-extends MeshInstance3D
+extends AnimatableBody3D
 
-var is_open = false
 var closed_position: Vector3
 var open_position: Vector3
-var tween: Tween # Store the tween so we can interrupt it
+var is_open: bool = false
 
-func _ready():
-    closed_position = position
-    open_position = closed_position + Vector3(2.5, 0, 0)
+func _ready() -> void:
+	# Automatically save exactly where you placed the door in the editor
+	closed_position = position
+	
+	# Set it to slide sideways on the X-axis by 2 meters (adjust as needed)
+	open_position = closed_position + Vector3(2.0, 0, 0)
 
-# 1. Connect your Area3D's "body_entered" signal to this function
-func _on_area_3d_body_entered(body):
-    if body.is_in_group("Player"):
-        open_door()
+func _on_door_detect_body_entered(body: Node3D) -> void:
+	print("TRIPPED BY: ", body.name)
+	if body.name == "Hero":
+		open_door()
 
-# 2. Connect your Area3D's "body_exited" signal to this function
-func _on_area_3d_body_exited(body):
-    if body.is_in_group("Player"):
-        close_door()
+func _on_door_detect_body_exited(body: Node3D) -> void:
+	if body.name == "Hero":
+		close_door()
 
-func open_door():
-    if is_open: return
-    is_open = true
-    animate_door(open_position)
+func open_door() -> void:
+	if not is_open:
+		is_open = true
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "position", open_position, 1.2).set_trans(Tween.TRANS_SINE)
 
-func close_door():
-    if not is_open: return
-    is_open = false
-    animate_door(closed_position)
-
-func animate_door(target_position: Vector3):
-    # Kill the previous tween if the player rapidly enters/exits the zone
-    if tween:
-        tween.kill() 
-        
-    tween = get_tree().create_tween()
-    tween.tween_property(self, "position", target_position, 1.0)
+func close_door() -> void:
+	if is_open:
+		is_open = false
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "position", closed_position, 1.2).set_trans(Tween.TRANS_SINE)

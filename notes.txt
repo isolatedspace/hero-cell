@@ -1,0 +1,3 @@
+angle camera
+transparent doors
+lights
