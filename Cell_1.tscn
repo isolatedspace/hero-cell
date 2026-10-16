@@ -148,11 +148,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0488417, 1.6856046, 3.0659
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067871094, -1.4032538, -0.117191315)
 shape = SubResource("BoxShape3D_6cm2n")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=933792262]
-transform = Transform3D(-0.9999967, 0.00026485475, -0.0025584083, -0.0025604113, -0.007860709, 0.99996585, 0.0002447348, 0.99996907, 0.007861362, -0.022558212, 3.1104379, 0.11155164)
-light_energy = 5.0
+[node name="InsideLight" type="SpotLight3D" parent="." unique_id=933792262]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.3178463, 0)
+light_energy = 0.5
 shadow_enabled = true
-spot_range = 20.0
+spot_angle = 90.0
+
+[node name="ExteriorLight" type="SpotLight3D" parent="." unique_id=383857864]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.835177, 2.1504602, 3.3086152)
+light_energy = 0.5
+shadow_enabled = true
+spot_range = 8.0
 
 [connection signal="body_entered" from="DoorDetect" to="SlidingDoor" method="_on_door_detect_body_entered"]
 [connection signal="body_exited" from="DoorDetect" to="SlidingDoor" method="_on_door_detect_body_exited"]
