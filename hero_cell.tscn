@@ -28,23 +28,29 @@ current = true
 fov = 80.00363
 
 [node name="Cell_Template" parent="." unique_id=377282368 instance=ExtResource("3_hjrxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11270547, 0, 0)
 
 [node name="Cell_Template2" parent="." unique_id=1347154069 instance=ExtResource("3_hjrxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="Cell_Template3" parent="." unique_id=1688488884 instance=ExtResource("3_hjrxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.005905, -0.0036509037, -0.0057606697)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3148756, -0.0036509037, -0.0057606697)
 
 [node name="Cell_Template4" parent="." unique_id=389989253 instance=ExtResource("3_hjrxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.167519, -0.00076425076, -0.004064083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.485712, -0.00076425076, -0.004064083)
 
 [node name="Cell_Template5" parent="." unique_id=1423199907 instance=ExtResource("3_hjrxs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2, 0.005, 0)
 
 [node name="CorridorFloor" type="CSGBox3D" parent="." unique_id=1793580855]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1454212, 0.17919749, 6.102334)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1454212, -0.03828603, 6.102334)
 use_collision = true
-size = Vector3(30.9646, 0.16418457, 6.1015625)
+size = Vector3(30.9646, 0.5991516, 6.1015625)
+
+[node name="CorridorFloor2" type="CSGBox3D" parent="." unique_id=1136922700]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.572046, -0.03828603, 12.393517)
+use_collision = true
+size = Vector3(30.9646, 0.5991516, 6)
 
 [node name="Cell_Template6" parent="." unique_id=988115159 instance=ExtResource("3_hjrxs")]
 transform = Transform3D(-0.9999999, 0, -8.742278e-08, 0, 0.99999994, 0, 8.742277e-08, 0, -1, -12.198, -0.011, 12.13)
@@ -60,3 +66,10 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6.32
 
 [node name="Cell_Template10" parent="." unique_id=62575595 instance=ExtResource("3_hjrxs")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12.528945, 0, 12.13)
+
+[node name="GuardRoom" type="CSGCombiner3D" parent="." unique_id=611518207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="GuardRoom" unique_id=1903681020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+size = Vector3(8, 1, 1)

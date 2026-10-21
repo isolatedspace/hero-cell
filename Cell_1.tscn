@@ -152,7 +152,7 @@ shape = SubResource("BoxShape3D_6cm2n")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.3178463, 0)
 light_energy = 0.5
 shadow_enabled = true
-spot_angle = 90.0
+spot_angle = 70.0
 
 [node name="ExteriorLight" type="SpotLight3D" parent="." unique_id=383857864]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.835177, 2.1504602, 3.3086152)
