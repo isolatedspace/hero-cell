@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cyqcqvsdraf6o"]
+
+[node name="GuardRoom" type="CSGCombiner3D" unique_id=479102784]
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=415421135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.414406, 1.3420655, 10.772018)
+size = Vector3(7.8, 3.3, 9.6)

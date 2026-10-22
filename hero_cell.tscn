@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnbkormyepmvw" path="res://hero.gd" id="2_1pdgf"]
 [ext_resource type="PackedScene" uid="uid://w8aoc8i3cru0" path="res://Cell_1.tscn" id="3_hjrxs"]
+[ext_resource type="PackedScene" uid="uid://cyqcqvsdraf6o" path="res://guard_room.tscn" id="3_nnpjm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1beno"]
 
@@ -48,9 +49,14 @@ use_collision = true
 size = Vector3(30.9646, 0.5991516, 6.1015625)
 
 [node name="CorridorFloor2" type="CSGBox3D" parent="." unique_id=1136922700]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.572046, -0.03828603, 12.393517)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.572046, -0.23871022, 15.4161)
 use_collision = true
-size = Vector3(30.9646, 0.5991516, 6)
+size = Vector3(24.919434, 1, 6)
+
+[node name="CorridorFloor3" type="CSGBox3D" parent="." unique_id=1867714302]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.522045, 1.6112899, 2.156383)
+use_collision = true
+size = Vector3(1.6, 2.9, 11.900001)
 
 [node name="Cell_Template6" parent="." unique_id=988115159 instance=ExtResource("3_hjrxs")]
 transform = Transform3D(-0.9999999, 0, -8.742278e-08, 0, 0.99999994, 0, 8.742277e-08, 0, -1, -12.198, -0.011, 12.13)
@@ -67,9 +73,5 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6.32
 [node name="Cell_Template10" parent="." unique_id=62575595 instance=ExtResource("3_hjrxs")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12.528945, 0, 12.13)
 
-[node name="GuardRoom" type="CSGCombiner3D" parent="." unique_id=611518207]
+[node name="GuardRoom" parent="." unique_id=479102784 instance=ExtResource("3_nnpjm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -3)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="GuardRoom" unique_id=1903681020]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-size = Vector3(8, 1, 1)
