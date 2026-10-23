@@ -3,6 +3,21 @@
 [node name="GuardRoom" type="CSGCombiner3D" unique_id=479102784]
 metadata/_edit_lock_ = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=415421135]
+[node name="Outerspace" type="CSGBox3D" parent="." unique_id=415421135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.414406, 1.3420655, 10.772018)
 size = Vector3(7.8, 3.3, 9.6)
+
+[node name="InnerSpace" type="CSGBox3D" parent="." unique_id=783550264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.414406, 1.3420655, 10.772018)
+operation = 2
+size = Vector3(7.4, 2.9, 9.2)
+
+[node name="Door" type="CSGBox3D" parent="." unique_id=2066314309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6644058, 1.3420655, 7.2220182)
+operation = 2
+size = Vector3(0.5, 2.9, 2.1000001)
+
+[node name="Window" type="CSGBox3D" parent="." unique_id=1296868322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6644058, 1.7920655, 13.0220175)
+operation = 2
+size = Vector3(0.5, 2, 4.7000003)
